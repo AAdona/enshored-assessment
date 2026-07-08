@@ -22,12 +22,22 @@ export default function Hero() {
         <br/>
         <span className="red">dolor sit amet</span> 
         </h1>
+        
         <p className={styles.hero__description}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br/>tempor incididunt ut labore et dolore magna aliqua.
         </p>
+
         <a href="#" className={`${styles.hero__btn} button`}>
           Get A Quote
         </a>
+        
+        <Image
+          src="/images/hero-img.png"
+          alt="Enshored"
+          width={293}
+          height={80}
+          className="hero__img image"
+        />
       </div>
     </section>
   );

@@ -13,7 +13,7 @@ export default function Nav() {
     <header className={styles.header}>
       <a href="#" className={styles.header__logo}>
         <Image
-          src="/images/Enshored-Logo.png"
+          src="/images/Enshored-Logo.webp"
           alt="Enshored"
           width={120}
           height={40}

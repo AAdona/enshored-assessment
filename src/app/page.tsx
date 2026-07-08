@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-// import About from "@/components/About";
-// import SalesBanner from "@/components/SalesBanner";
+import About from "@/components/About";
+import Sales from "@/components/Sales";
 // import ProcessTimeline from "@/components/ProcessTimeline";
 // import Testimonials from "@/components/Testimonials";
 // import ContactForm from "@/components/ContactForm";
@@ -12,6 +12,8 @@ export default function Home() {
     <>
       <Nav />
       <Hero />
+      <About />
+      <Sales />
     </>
   );
 }
