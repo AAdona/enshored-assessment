@@ -7,9 +7,9 @@
   --color-text-muted: #6b6b6b;
   --color-primary: #e8262c;
 
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-size-medium: 14px;
   --container-max: 1280px;
 }
 
@@ -22,6 +22,7 @@
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: var(--font-body);
 }
 
 body {
@@ -29,6 +30,10 @@ body {
   background: var(--color-bg);
   font-family: var(--font-body);
   line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -43,4 +48,27 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 @media (min-width: 768px) {
   .container { padding: 0 48px; }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.button {
+  background-color: var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  height: 32px;
+  border-radius: 8px;
+  font-size: var(--font-size-medium);
+}
+
+.red {
+  color: var(--color-primary);
 }

@@ -1,0 +1,39 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 8.33%;
+  z-index: 10;
+  border-bottom: 1px solid #E6E6E71A;
+}
+
+.header__logo {
+  height: 40px;
+  position: absolute;
+  left: 8.33%;
+}
+
+.header__nav {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.header__navItem {
+  font-size: 16px;
+  line-height: 28px;
+  color: #fff;
+}
+
+.header__btn {
+  width: 136px;
+  position: absolute;
+  right: 8.33%;
+}
+
+

@@ -1,0 +1,45 @@
+.hero {
+  position: relative;
+  min-height: 900px;
+  padding-top: 229px;
+  /* height: 100vh; */
+  overflow: hidden;
+}
+
+.hero__bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bgImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 690px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 88px;
+  letter-spacing: -1.8px;
+  color: #fff;
+}
+
+.hero__description {
+  font-size: 20px;
+  line-height: 32px;
+  color: #fff;
+  margin-top: 24px;
+}
+
+.hero__btn {
+  max-width: 144px;
+}
