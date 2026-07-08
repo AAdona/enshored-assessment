@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./Nav.module.css";
 
 const NAV_LINKS = [
@@ -11,7 +12,13 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       <a href="#" className={styles.header__logo}>
-        <img src="/images/Enshored logo.png" alt="Enshored" className="image"/>
+        <Image
+          src="/images/Enshored logo.png"
+          alt="Enshored"
+          width={120}
+          height={40}
+          className="image"
+        />
       </a>
 
       <ul className={styles.header__nav}>
