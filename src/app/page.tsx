@@ -2,9 +2,9 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Sales from "@/components/Sales";
-// import ProcessTimeline from "@/components/ProcessTimeline";
-// import Testimonials from "@/components/Testimonials";
-// import ContactForm from "@/components/ContactForm";
+import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 // import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +14,9 @@ export default function Home() {
       <Hero />
       <About />
       <Sales />
+      <Services />
+      <Testimonials />
+      <Contact />
     </>
   );
 }

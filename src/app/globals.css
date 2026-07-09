@@ -48,6 +48,14 @@ button { font-family: inherit; cursor: pointer; border: none; }
   box-sizing: border-box;
 }
 
+.container--980 {
+  max-width: calc(980px + 16.66%);
+}
+
+.container--testimonials {
+  padding-bottom: 0;
+}
+
 .image {
   width: auto;
   height: auto;
@@ -87,6 +95,18 @@ button { font-family: inherit; cursor: pointer; border: none; }
   display: inline-block;
 }
 
+.section__title--sm {
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+  margin-bottom: 21px;
+}
+
+.section__title--nm {
+  margin-bottom: 0;
+}
+
 .text {
   font-size: 16px;
   line-height: 24px;
@@ -97,4 +117,12 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .text--gray {
   color: #434347;
+}
+
+.text--white {
+  color: #fff;
+}
+
+.text--nm {
+  margin-block: 0;
 }
