@@ -1,0 +1,77 @@
+.title {
+  font-weight: 500;
+  font-size: 33px;
+  line-height: 40px;
+  letter-spacing: -1.6px;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6b6b6b;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.group label {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.group input,
+.group textarea {
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+  padding-inline: 12px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.group input {
+  height: 40px;
+}
+
+.group textarea {
+  padding-block: 10px;
+  resize: vertical;
+}
+
+.success {
+  padding: 24px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .group {
+    gap: 4px;
+  }
+
+  .group label {
+    font-size: 13px;
+  }
+
+  .group input {
+    height: 36px;
+  }
+}

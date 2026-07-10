@@ -51,7 +51,7 @@ export default function ServiceStep({
         className={styles.service__step}
         initial={{ opacity: 0, y: 40 }}
         animate={animationInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
       >
         <span className={styles.service__num}>STEP {step}</span>
         <h3 className={styles.service__subtitle}>Lorem Ipsum, Lorem Ipsum</h3>

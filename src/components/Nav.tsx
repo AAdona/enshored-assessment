@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import styles from "./Nav.module.css";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const NAV_LINKS = [
   { label: "About", href: "#" },
@@ -19,6 +20,7 @@ const SCROLL_THRESHOLD = 50; // px scrolled before header becomes "active"
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openModal } = useQuoteModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +77,14 @@ export default function Nav() {
           </li>
         ))}
         <li className={styles.header__quote}>
-          <Link href="#" className="button" onClick={() => setIsOpen(false)}>
+          <Link
+            href="#"
+            className="button"
+            onClick={() => {
+              setIsOpen(false);
+              openModal();
+            }}
+          >
             Get A Quote
           </Link>
         </li>

@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./Hero.module.css";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function Hero() {
+  const { openModal } = useQuoteModal();
   return (
     <section className={styles.hero}>
       {/* Background Image Wrapper */}
@@ -18,19 +22,22 @@ export default function Hero() {
 
       {/* Content stays on top */}
       <div className={styles.hero__content}>
-        <h1 className={styles.hero__title}>Lorem ipsum 
-        <br/>
-        <span className="red">dolor sit amet</span> 
+        <h1 className={styles.hero__title}>
+          Lorem ipsum
+          <br />
+          <span className="red">dolor sit amet</span>
         </h1>
-        
+
         <p className={styles.hero__description}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br/>tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          <br />
+          tempor incididunt ut labore et dolore magna aliqua.
         </p>
 
-        <a href="#" className={`${styles.hero__btn} button`}>
+        <button onClick={openModal} className={`${styles.hero__btn} button`}>
           Get A Quote
-        </a>
-        
+        </button>
+
         <Image
           src="/images/hero-img.png"
           alt="Enshored"
