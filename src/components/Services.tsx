@@ -10,7 +10,7 @@ export default function Services() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   return (
-    <section className={styles.service}>
+    <section className={styles.service} id="services">
       <div className={`${styles.service__container} container container--980`}>
         <div className={styles.service__header}>
           <span className="section__title section__title--sm">OUR PROCESS</span>

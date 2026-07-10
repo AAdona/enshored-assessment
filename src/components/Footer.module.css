@@ -6,6 +6,8 @@
 .footer__content {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 32px;
 }
 @media screen and (max-width: 767px) {
   .footer__content {
@@ -148,4 +150,13 @@
     height: 32px;
     font-size: 14px !important;
   }
+}
+
+.footer__note {
+  font-size: 12px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  display: block;
+  margin: 32px auto 0;
+  text-align: center;
 }

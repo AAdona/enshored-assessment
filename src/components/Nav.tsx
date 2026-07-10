@@ -9,10 +9,10 @@ import styles from "./Nav.module.css";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const NAV_LINKS = [
-  { label: "About", href: "#" },
-  { label: "Work", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Careers", href: "#" },
+  { label: "About", href: "#about" },
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "Careers", href: "#careers" },
 ];
 
 const SCROLL_THRESHOLD = 50; // px scrolled before header becomes "active"
@@ -32,6 +32,34 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (!href.startsWith("#")) return;
+
+    const targetId = href.slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const html = document.documentElement;
+    const isAbout = targetId === "about";
+
+    if (isAbout) html.style.scrollBehavior = "auto";
+
+    target.scrollIntoView({ behavior: isAbout ? "auto" : "smooth" });
+
+    if (isAbout) {
+      requestAnimationFrame(() => {
+        html.style.scrollBehavior = "";
+      });
+    }
+
+    setIsOpen(false);
+  };
+
   return (
     <header className={clsx(styles.header, isScrolled && styles["active"])}>
       <Link href="#" className={styles.header__logo}>
@@ -47,7 +75,12 @@ export default function Nav() {
       <ul className={styles.header__nav}>
         {NAV_LINKS.map((link) => (
           <li key={link.label} className={styles.header__navItem}>
-            <Link href={link.href}>{link.label}</Link>
+            <Link
+              href={link.href}
+              onClick={(e) => handleNavLinkClick(e, link.href)}
+            >
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>
@@ -72,14 +105,11 @@ export default function Nav() {
         {NAV_LINKS.map((link) => (
           <li key={link.label}>
             <Link
-              href="#"
+              href={link.href}
               className="button"
-              onClick={() => {
-                setIsOpen(false);
-                openModal();
-              }}
+              onClick={(e) => handleNavLinkClick(e, link.href)}
             >
-              Get A Quote
+              {link.label}
             </Link>
           </li>
         ))}

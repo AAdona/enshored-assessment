@@ -3,7 +3,7 @@ import styles from "./Sales.module.css";
 
 export default function Sales() {
   return (
-    <section className={styles.sales}>
+    <section className={styles.sales} id="work">
       <div className={`${styles.sales__container} container`}>
         <span className="section__title">
           SALES & INSTALLATION

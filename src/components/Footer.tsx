@@ -60,6 +60,7 @@ export default function Footer() {
             </div>
           </div>
         </div >
+        <span className={styles.footer__note}>© 2026 Enshored. All rights reserved.</span>
       </div>
     </footer>
   );
