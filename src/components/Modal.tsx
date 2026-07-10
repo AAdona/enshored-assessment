@@ -53,12 +53,10 @@ export default function Modal({ isOpen, onClose, children }: Props) {
     <div
       className={clsx(styles.overlay, isVisible && styles["overlay--open"])}
       onClick={onClose}
-      aria-hidden="true"
     >
       <div
         className={clsx(styles.modal, isVisible && styles["modal--open"])}
         role="dialog"
-        aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
         <button className={styles.closeBtn} onClick={onClose} aria-label="Close modal">
