@@ -13,7 +13,7 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
-  // Smooths out the raw scroll progress so motion doesn't feel stepped/jittery
+
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
