@@ -71,8 +71,15 @@ export default function Nav() {
       <ul className={`${styles.header__mobileNav} ${isOpen ? styles["header__mobileNav--open"] : ""}`}>
         {NAV_LINKS.map((link) => (
           <li key={link.label}>
-            <Link href={link.href} onClick={() => setIsOpen(false)}>
-              {link.label}
+            <Link
+              href="#"
+              className="button"
+              onClick={() => {
+                setIsOpen(false);
+                openModal();
+              }}
+            >
+              Get A Quote
             </Link>
           </li>
         ))}
