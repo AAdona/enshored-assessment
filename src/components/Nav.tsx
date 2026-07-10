@@ -106,7 +106,6 @@ export default function Nav() {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="button"
               onClick={(e) => handleNavLinkClick(e, link.href)}
             >
               {link.label}
