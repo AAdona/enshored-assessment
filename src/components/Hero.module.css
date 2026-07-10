@@ -76,3 +76,7 @@
     margin: 24px auto 24px;
   }
 }
+
+.hero__img {
+  height: 80px;
+}

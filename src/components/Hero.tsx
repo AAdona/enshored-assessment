@@ -37,14 +37,15 @@ export default function Hero() {
         <button onClick={openModal} className={`${styles.hero__btn} button`}>
           Get A Quote
         </button>
-
-        <Image
-          src="/images/hero-img.png"
-          alt="Enshored"
-          width={293}
-          height={80}
-          className="hero__img image"
-        />
+        <div className={styles.hero__img}>
+          <Image
+            src="/images/hero-img.png"
+            alt="Enshored"
+            width={293}
+            height={80}
+            className="image"
+          />
+        </div>
       </div>
     </section>
   );
