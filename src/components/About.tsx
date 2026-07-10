@@ -1,18 +1,40 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import styles from "./About.module.css";
 
 export default function About() {
+  const imgWrapperRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: imgWrapperRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Smooths out the raw scroll progress so motion doesn't feel stepped/jittery
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    mass: 0.5,
+  });
+
+  const y = useTransform(smoothProgress, [0, 1], ["-8%", "8%"]);
   return (
     <section className={styles.about}>
       <div className={`${styles.about__container} container`}>
-        <div className={styles.about__img}>
-          <Image
-            src="/images/About-Us.webp"
-            alt="About Us"
-            width={500}
-            height={300}
-            className="image"
-          />
+
+        <div className={styles.about__img} ref={imgWrapperRef}>
+          <motion.div style={{ y }} className={styles.about__imgInner}>
+            <Image
+              src="/images/About-Us.webp"
+              alt="About Us"
+              width={500}
+              height={300}
+              className="image"
+            />
+          </motion.div>
         </div>
 
         <div className={styles.about__content}>

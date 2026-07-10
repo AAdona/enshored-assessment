@@ -65,7 +65,7 @@ export default function ServiceStep({
         className={styles.service__img}
         initial={{ opacity: 0, y: 40 }}
         animate={animationInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
       >
         <Image
           src={`/images/step${step}.webp`}

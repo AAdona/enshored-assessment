@@ -51,6 +51,7 @@ const TESTIMONIALS = [
 
 const LOOPED_TESTIMONIALS = [...TESTIMONIALS, ...TESTIMONIALS];
 const SCROLL_SPEED = 1; // px per frame
+const MOBILE_BREAKPOINT = "(max-width: 767px)";
 
 export default function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -58,14 +59,27 @@ export default function Testimonials() {
   const rafRef = useRef<number | null>(null);
   const isPausedRef = useRef(false);
   const singleSetWidthRef = useRef(0);
-  
-  // Track the floating-point scroll position explicitly
   const scrollPosRef = useRef(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [sidePadding, setSidePadding] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Measure container's left gutter for initial alignment
+  // Track mobile breakpoint
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(MOBILE_BREAKPOINT);
+
+    const update = () => {
+      setIsMobile(mediaQuery.matches);
+      isPausedRef.current = mediaQuery.matches; // kill autoplay entirely on mobile
+    };
+
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+
+  // Measure container's left gutter for desktop alignment
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -98,14 +112,13 @@ export default function Testimonials() {
     return () => window.removeEventListener("resize", measure);
   }, [sidePadding]);
 
-  // The continuous scroll loop
+  // Continuous scroll loop — no-ops automatically on mobile since isPausedRef is true
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     const tick = () => {
       if (!isPausedRef.current && singleSetWidthRef.current > 0) {
-        // Update mutable ref tracker to prevent subpixel loss
         scrollPosRef.current += SCROLL_SPEED;
 
         if (scrollPosRef.current >= singleSetWidthRef.current) {
@@ -124,13 +137,12 @@ export default function Testimonials() {
     };
   }, []);
 
-  // Sync internal scroll tracking ref if user manually scrolls or touches track
+  // Sync active index + internal scroll pointer
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
     const handleScroll = () => {
-      // Only sync if the marquee loop is paused (like during manual intervention)
       if (isPausedRef.current) {
         scrollPosRef.current = track.scrollLeft;
       }
@@ -154,7 +166,7 @@ export default function Testimonials() {
     return () => track.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Manual nudge for arrow clicks
+  // Manual nudge for arrow clicks (desktop marquee)
   const nudge = useCallback((direction: 1 | -1) => {
     const track = trackRef.current;
     if (!track) return;
@@ -162,16 +174,17 @@ export default function Testimonials() {
     isPausedRef.current = true;
 
     const firstCard = track.children[0] as HTMLElement;
-    const cardStep = firstCard.offsetWidth + 24; // 24 = gap
+    const cardStep = firstCard.offsetWidth + 24;
 
     track.scrollBy({ left: cardStep * direction, behavior: "smooth" });
 
     window.setTimeout(() => {
-      // Update our internal pointer to match where the smooth scroll landed
       scrollPosRef.current = track.scrollLeft;
-      isPausedRef.current = false;
+      if (!isMobile) {
+        isPausedRef.current = false;
+      }
     }, 1000);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className={styles.testimonials}>
@@ -195,13 +208,14 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Handlers moved here 👇 */}
       <div
         className={styles.testimonials__track}
         ref={trackRef}
-        style={{ paddingLeft: sidePadding, paddingRight: sidePadding }}
+        style={isMobile ? undefined : { paddingLeft: sidePadding, paddingRight: sidePadding }}
         onMouseEnter={() => (isPausedRef.current = true)}
-        onMouseLeave={() => (isPausedRef.current = false)}
+        onMouseLeave={() => {
+          if (!isMobile) isPausedRef.current = false;
+        }}
       >
         {LOOPED_TESTIMONIALS.map((t, i) => (
           <div key={`${t.name}-${i}`} className={styles.testimonials__card}>
@@ -228,6 +242,7 @@ export default function Testimonials() {
           </div>
         ))}
       </div>
+
       <div className={styles.testimonials__dots}>
         {TESTIMONIALS.map((_, index) => (
           <div

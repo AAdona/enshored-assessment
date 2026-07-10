@@ -67,13 +67,18 @@
   gap: 24px;
   scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
-  overflow-x: hidden; 
-  touch-action: none; 
-  user-select: none
+  overflow-x: hidden;
+  touch-action: none;
+  user-select: none;
 }
 @media screen and (max-width: 767px) {
   .testimonials__track {
     gap: 16px;
+    overflow-x: auto;
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory;
+    padding-left: 12vw;
+    padding-right: 12vw;
   }
 }
 
@@ -93,9 +98,10 @@
 }
 @media screen and (max-width: 767px) {
   .testimonials__card {
-    width: 300px;
+    width: 76vw;
     height: 100%;
     padding: 16px;
+    scroll-snap-align: center;
   }
 }
 
