@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { useInView } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import Image from "next/image";
 import clsx from "clsx";
 import styles from "./Services.module.css";
@@ -22,8 +22,14 @@ export default function ServiceStep({
   const ref = useRef<HTMLDivElement>(null);
 
   const isInView = useInView(ref, {
-    margin: "-45% 0px -45% 0px", // narrow band near vertical center
+    margin: "-45% 0px -45% 0px",
     once: false,
+  });
+
+  // Separate observer just for the entrance animation — triggers once, earlier than the activation band
+  const animationInView = useInView(ref, {
+    margin: "-10% 0px -10% 0px",
+    once: true,
   });
 
   useEffect(() => {
@@ -41,15 +47,26 @@ export default function ServiceStep({
       ref={ref}
       className={clsx(styles.service__item, isActive && styles.active)}
     >
-      <div className={styles.service__step}>
+      <motion.div
+        className={styles.service__step}
+        initial={{ opacity: 0, y: 40 }}
+        animate={animationInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <span className={styles.service__num}>STEP {step}</span>
         <h3 className={styles.service__subtitle}>Lorem Ipsum, Lorem Ipsum</h3>
         <p className="text text--white">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-      </div>
-      <div className={styles.service__img}>
+      </motion.div>
+
+      <motion.div
+        className={styles.service__img}
+        initial={{ opacity: 0, y: 40 }}
+        animate={animationInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+      >
         <Image
           src={`/images/step${step}.webp`}
           alt={`Service Step ${step}`}
@@ -57,7 +74,7 @@ export default function ServiceStep({
           sizes="(max-width: 768px) 100vw, 46vw"
           className="image"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

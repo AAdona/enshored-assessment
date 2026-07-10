@@ -1,0 +1,151 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .footer__content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.footer__info {
+  width: 38.33%;
+}
+@media screen and (max-width: 767px) {
+  .footer__info {
+    width: 100%;
+  }
+}
+
+.footer__logo {
+  height: 48px;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 767px) {
+  .footer__logo {
+    margin-bottom: 16px;
+    height: 32px;
+  }
+}
+
+.footer__social {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 767px) {
+  .footer__social {
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .footer__social img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.footer__links {
+  width: 52.67%;
+  display: flex;
+  gap: 24px;
+}
+@media screen and (max-width: 767px) {
+  .footer__links {
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.footer__row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 25.32%;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .footer__row {
+    gap: 8px;
+  }
+}
+
+.footer__row:nth-child(-n+2) {
+  max-width: 160px;
+}
+
+.footer__title {
+  font-family: var(--font-space-grotesk);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.25px;
+}
+@media screen and (max-width: 767px) {
+  .footer__title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.footer__row > a {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.09px;
+}
+@media screen and (max-width: 767px) {
+  .footer__row > a {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.footer__row > input {
+  height: 48px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #07090D;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.09px;
+}
+@media screen and (max-width: 767px) {
+  .footer__row > input {
+    height: 40px;
+  }
+}
+
+.footer > input::placeholder {
+  color: #fff;
+}
+
+.footer__btn {
+  height: 36px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .footer__btn {
+    height: 32px;
+    font-size: 14px !important;
+  }
+}

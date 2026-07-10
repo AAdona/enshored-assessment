@@ -58,7 +58,7 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .image {
   width: auto;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -125,4 +125,25 @@ button { font-family: inherit; cursor: pointer; border: none; }
 
 .text--nm {
   margin-block: 0;
+}
+
+/* MOBILE */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 40px 4.33%;
+  }
+
+  .container--testimonials {
+    padding-bottom: 0;
+  }
+
+  .text {
+    margin-block: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .section__title {
+    margin-bottom: 10px;
+  }
 }

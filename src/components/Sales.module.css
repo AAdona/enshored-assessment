@@ -69,6 +69,8 @@
 
 .sales__icon {
   padding: 4px;
+  height: 48px;
+  width: 48px;
 }
 
 .sales__boxTitle {
@@ -78,4 +80,78 @@
   font-size: 20px;
   line-height: 32px;
   letter-spacing: -0.2px;
+}
+
+.sales__br {
+  display: none;
+}
+
+@media screen and (max-width: 1430px) {
+  .sales__title::before,
+  .sales__title::after {
+    display: none;
+  }
+  
+  .sales__br {
+    display: block;
+  }
+
+  .sales__highlight {
+    background-color: var(--color-primary);
+    line-height: 75px;
+  }
+}
+/* TABLET */
+@media screen and (max-width: 1024px) {
+  .sales__header {
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+  }
+
+  .sales__title {
+    width: 100%;
+    font-size: 50px;
+  }
+
+  .sales__info {
+    width: 100%;
+    text-align: left;
+  }
+
+  .sales__btn {
+    margin-inline: auto;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 768px) {
+  .sales__title {
+    font-size: 33px;
+    line-height: 48px;
+  }
+
+  .sales__br {
+    display: none;
+  }
+
+  .sales__highlight {
+    line-height: 45px;
+    padding-inline: 8px;
+  }
+
+  .sales__others {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .sales__box {
+    padding: 16px;
+  }
+
+  .sales__img {
+    height: 150px;
+  }
 }

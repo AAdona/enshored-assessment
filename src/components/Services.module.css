@@ -7,6 +7,11 @@
   margin-bottom: 64px;
   color: #fff;
 }
+@media screen and (max-width: 767px) {
+  .service__header {
+    margin-bottom: 40px;
+  }
+}
 
 .service__title {
   font-weight: 500;
@@ -14,6 +19,12 @@
   line-height: 100%;
   letter-spacing: -2px;
   margin-bottom: 6px;
+}
+@media screen and (max-width: 767px) {
+  .service__title {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
 }
 
 .service__content {
@@ -30,12 +41,25 @@
   left: 50%;
   transform: translateX(-50%);
 }
+@media screen and (max-width: 767px) {
+  .service__content::after {
+    left: 0;
+    transform: none;
+    width: 3px;
+  }
+}
 
 .service__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  .service__item {
+    flex-direction: column;
+    padding-left: 25px;
+  }
 }
 
 .service__item::before {
@@ -51,6 +75,14 @@
   transition: background-color 0.4s ease;
   z-index: 1;
 }
+@media screen and (max-width: 767px) {
+  .service__item::before {
+    height: 15px;
+    width: 15px;
+    left: 2px;
+    top: 12px;
+  }
+}
 
 .service__item.active::before {
   background-color: var(--color-primary);
@@ -59,13 +91,28 @@
 .service__item:not(:last-child) {
   margin-bottom: 56px;
 }
+@media screen and (max-width: 767px) {
+  .service__item:not(:last-child) {
+    margin-bottom: 33px;
+  }
+}
 
 .service__item:nth-child(even) {
   flex-direction: row-reverse;
 }
+@media screen and (max-width: 767px) {
+  .service__item:nth-child(even) {
+    flex-direction: column;
+  }
+}
 
 .service__step {
   width: 45.92%;
+}
+@media screen and (max-width: 767px) {
+  .service__step {
+    width: 100%;
+  }
 }
 
 .service__num {
@@ -75,6 +122,12 @@
   letter-spacing: 0%;
   color: #fff;
 }
+@media screen and (max-width: 767px) {
+  .service__num {
+    font-size: 14px;
+    line-height: 18.75px;
+  }
+}
 
 .service__subtitle {
   font-size: 32px;
@@ -82,6 +135,12 @@
   letter-spacing: 0%;
   color: var(--color-primary);
   margin-bottom: 8px;
+}
+@media screen and (max-width: 767px) {
+  .service__subtitle {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
 }
 
 .service__img {
@@ -91,4 +150,10 @@
   overflow: hidden;
   box-shadow: 0 4px 24px 0 #00000014;
   border-radius: 16px;
+}
+@media screen and (max-width: 767px) {
+  .service__img {
+    width: 100%;
+    height: 200px;
+  }
 }

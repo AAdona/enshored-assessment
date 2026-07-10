@@ -6,13 +6,14 @@ export default function Sales() {
     <section className={styles.sales}>
       <div className={`${styles.sales__container} container`}>
         <span className="section__title">
-          SALES &nbsp; INSTALLATION
+          SALES & INSTALLATION
         </span>
         <div className={styles.sales__header}>
           <h2 className={styles.sales__title}>
             <span className={styles.sales__highlight}>
               Lorem ipsum dolor sit amet,
             </span>
+            <br className={styles.sales__br}/>
             consectetur adipiscing elit
           </h2>
           <div className={styles.sales__info}>
